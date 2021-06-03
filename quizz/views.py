@@ -32,9 +32,13 @@ def enviar_tentativa(request):
     r4 = int(request.POST.get('4'))
     r5 = int(request.POST.get('5'))
     r6 = int(request.POST.get('6'))
+    r7 = int(request.POST.get('7'))
+    r8 = int(request.POST.get('8'))
+    r9 = int(request.POST.get('9'))
+    r10 = int(request.POST.get('10'))
 
     if request.method == 'POST':
-        pontos = r1+r2+r3+r4+r5+r6
+        pontos = r1+r2+r3+r4+r5+r6+r7+r8+r9+r10
 
 
     t = Tentativa.objects.create(
