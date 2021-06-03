@@ -1,0 +1,199 @@
+{% extends 'pw/base.html' %}
+{% load static %}
+
+{% block main %}
+        
+            <!-- CONTAINER TITULO -->
+            <section class="top-container">
+              <header class="showcase-info" id="pag-sobreweb">
+                  <h1>Sobre O Website</h1>
+              </header>
+            </section>
+
+            <!-- INFO POSTS -->
+
+            <section class="info-nobg">
+                <!-- LINHA 1-->
+                <section class="vazio">    
+                </section>
+
+                <section>
+                  <h2>O que é esta página?</h2>
+                  <p>Nesta página vão estar inseridos alguns requisitos do projeto bem como falar do website em si.</p>
+                  <ul>
+                      <li>WordCloud</li>
+                      <svg width="300" height="300">
+
+                        <image href = "{% static 'pw/img/wordcloud.png' %}"></image>
+                        <a href ="{% url 'home' %}">
+                            <line x1="47" y1="100" x2="250" y2="100" opacity="0.1" style="stroke:cyan;stroke-width:50"></line>
+                        </a>
+                        <a href ="{% url 'eventos' %}">
+                            <line x1="100" y1="60" x2="200" y2="60" opacity="0.1" style="stroke:cyan;stroke-width:19"></line>
+                        </a>
+                        <a href ="{% url 'sobre' %}">
+                            <line x1="55" y1="157" x2="243" y2="157" opacity="0.1" style="stroke:cyan;stroke-width:15"></line>
+                        </a>
+                        <a href ="{% url 'feedback' %}">
+                            <line x1="101" y1="175" x2="204" y2="175" opacity="0.1" style="stroke:cyan;stroke-width:20"></line>
+                        </a>
+                        </svg>
+
+                  </ul>
+                </section>
+                
+                <section class="vazio">
+                </section>
+                <!-- LINHA 2-->
+
+                <section class="vazio">
+                </section>
+
+                <section>
+                    <h3>Mapa do Website</h3>
+                    <ul>
+                        <a href="{% url 'home' %}"><li>Index</li></a>
+                        <ul>
+                            <li>Páginas Técnicas</li>
+                            <ul>
+                                <li><a href="{% url 'sobrewebsite' %}">Sobre o Website</a></li>
+                            </ul>
+                        </ul>
+                        <ul>
+                            <li>Empresa</li>
+                            <ul>
+                                <li><a href="{% url 'sobre' %}">Sobre a Empresa</a></li>
+                                <li><a href="{% url 'eventos' %}">Eventos</a></li>
+                            </ul>
+                            <li>Outros</li>
+                            <ul>
+                                <li><a href="{% url 'feedback' %}">Feedback</a></li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </section>
+
+                <section class="vazio">
+                </section>
+                <!-- LINHA 3-->
+
+                <section class="vazio">
+                </section>
+
+                <section>
+                    <h3>Tabela de Inventários</h3>
+
+                    <table class="tabela">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nº</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>Páginas</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Imagens</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>Links Externos</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>Vídeos</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Animações</td>
+                            <td>2</td>
+                        </tr>
+                        </table>
+
+                </section>
+
+                <section class="vazio">
+                </section>
+                <!-- LINHA 4-->
+
+                <section class="vazio">
+                </section>
+
+                <section>
+                    <h3>Técnicas usadas</h3>
+                
+                    <table class="tabela">
+                        <thead>
+                            <tr>
+                                <th>Caracteristicas</th>
+                                <th>Elementos/Técnicas</th>
+                                <th>Exemplos</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>Etiquetas</td>
+                            <td>Foram usadas as etiquetas &lt;head&gt;,&lt;body&gt;,&lt;div&gt;,&lt;nav&gt;,&lt;section&gt;,
+                                &lt;aside&gt;,&lt;footer&gt;,&lt;ul&gt;,&lt;li&gt;,&lt;h1&gt;,&lt;input&gt;,&lt;p&gt;,&lt;a&gt;,
+                                &lt;svg&gt;,&lt;img&gt;,
+                            </td>
+                            <td><p>Foi usado &lt;div&gt;, por exemplo para fazer o wrapper para as paginas;</p>
+                                <p>Foi usado &lt;nav&gt;, &lt;ul&gt; e &lt;li&gt;para o menu no header;</p>   
+                                <p>Foi usado &lt;section&gt;, por exemplo para dividir as secçoes na pag. inicial;</p>
+                                <p>Foi usado &lt;aside&gt; para fazer a sticky note para deixar feedback;</p>
+                                <p>Foi usado &lt;input&gt;, por exemplo, no footer, para a inscrição na newsletter;</p>
+                                <p>Foi usado &lt;svg&gt; e &lt;img&gt;, por exemplo, na wordcloud desta página.</p>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Layouts</td>
+                            <td>Foi usado CSS Grid e Flexbox para fazer o layout do website.</td>
+                            <td>
+                                <p>Foi usado CSS Grid, por exemplo, na parte sobre os eventos da pag. princípal;</p>
+                                <p>Foi usado Flexbox, por exemplo, na parte das marcas na pag. princípal.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Responsividade</td>
+                            <td>Foram usadas media queries que adaptam o layout para telemovel e PC consoante o tamanho da janela do browser.</td>
+                            <td>Foram usadas medias querias para as seguintes widths: 1024px, 768px, 540px. </td>
+                        </tr>
+                        <tr>
+                            <td>Seletores</td>
+                            <td>Foram usados seletores de tipo, classe, id, atributo, descentes e filhos</td>
+                            <td>
+                                <p>Foram usados seletores de tipo para estilizar, por exemplo, o body, os hyperlinks, as imagens e o header;</p>
+                                <p>Foram usados seletores de classe, por exemplo, para estilizar a barra mais escura em baixo de header;</p>
+                                <p>Foram usados seletores de id, por exemplo, para meter os backgrounds nos containers com o titúlo das páginas "Sobre a Empresa", "Eventos", etc.</p>
+                                <p>Foram usados seletores descendentes, por exemplo, para estilizar o texto e as àreas dentro do header;</p>
+                                <p>Foram usados seletores filhos, por exemplo, para estilizar o input na pagina de feedback.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Animações</td>
+                            <td>Foram usados keyframes para fazer as animações.</td>
+                            <td>Na página principal há 2 animações, uma de mudança de cor e tamanho, e uma de translação nas imagens das marcas.</td>
+                        </tr>
+                        </table>
+                </section>
+
+                <section class="vazio">
+                </section>
+
+            <!-- LINHA 5-->
+                <section class="vazio">
+                </section>
+
+                <section>
+                    <iframe width="100%" height="315"
+                    src="https://www.youtube.com/embed/2NgE2Cd4J7I">
+                    </iframe>
+                </section>
+
+                <section class="vazio">
+                </section>
+            </section>
+
+{% endblock %}

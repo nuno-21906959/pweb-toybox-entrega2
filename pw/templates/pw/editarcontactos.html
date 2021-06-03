@@ -1,0 +1,76 @@
+{% extends 'pw/base.html' %}
+
+{% block main %}
+
+            <!-- CONTAINER TITULO -->
+            <section class="top-container">
+              <header class="showcase-info" id="pag-contactos">
+                  <h1>
+                      {% if user.is_authenticated %}
+                      Contactos (Administrador)
+                      {% else %}
+                      Contacte-nos!
+                      {%endif%}
+                  </h1>
+              </header>
+            </section>
+
+            <!-- INFO POSTS -->
+
+            <section class="info-nobg">
+                <section class="vazio">
+
+                </section>
+
+                {% if user.is_authenticated %}
+                <article style = "margin:auto;">
+                    <h2>Editar Contacto</h2>
+                  <form action ="{% url 'editarcontactos' contacto_id %}" method="POST">
+                    {% csrf_token %}
+                      <section class="contacto-container">
+                        <label class ="nome" >Nome</label>
+                        {{ form.nome }}
+
+                        <label class ="apelido">Apelido</label>
+                        {{ form.apelido }}
+
+                        <label class ="datanasc">Data de Nascimento</label>
+                        {{ form.datanasc }}
+
+                          <p class="empty"></p>
+                          <p class="empty"></p>
+
+
+
+                        <label class ="telefone">Telefone</label>
+                        {{ form.telefone }}
+
+                        <label class ="email">Email</label>
+                        {{ form.email }}
+
+
+                        <p class ="mensagem">Mensagem</p>
+                        {{ form.mensagem }}
+
+                          <p class="empty"></p>
+                          <p class="empty"></p>
+                          <p class="empty"></p>
+                          <p class="empty"></p>
+
+
+                          <div class="enviar" style = "margin-top: 15px">
+                              <input class ="butao" type="submit" value="Enviar">
+                          </div>
+                          <div class="enviar" style = "margin-top: 15px;">
+                              <a href="{% url 'apagarcontactos' contacto_id %}">
+                                  <input class ="butao" style="background:red; width='50px'" value="Apagar">
+                              </a>
+                          </div>
+
+                      </section>
+                {{ form.enviado }}
+                </form>
+                {%endif%}
+            </section>
+
+{% endblock %}

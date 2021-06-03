@@ -1,0 +1,57 @@
+{% extends 'pw/base.html' %}
+
+{% block main %}
+
+            <!-- CONTAINER TITULO -->
+            <section class="top-container">
+              <header class="showcase-info" id="pag-contactos">
+                  <h1>
+                     Quizz
+                  </h1>
+              </header>
+            </section>
+
+            <!-- INFO POSTS -->
+            <section class="info-nobg">
+                <section class="vazio">
+                </section>
+
+                <article style = "margin:auto;">
+                    {% if user.is_authenticated %}
+                        {% if count == 0 %}
+                        <article style = "margin:auto;">
+                            <h4>Ainda não tem Pontuações!</h4>
+                            <h5>Volte atrás e responda ao Quizz!</h5>
+                        </article>
+                        {% else %}
+                        <h3 style = "margin-bottom : 50px">Pontuação em Quizzes</h3>
+                            {% for quizz in quizzes %}
+                            {% for tentativa in tentativas %}
+                            {% if tentativa.pessoa == request.user %}
+                            {% if tentativa.quizz == quizz %}
+                                <section class="pontuacao-container">
+                                    <div class ="quizz-nome" >{{ quizz.titulo }}</div>
+                                    <div class ="entrega" >{{ tentativa.entrega }}</div>
+                                    <div class ="pontos" >{{ tentativa.pontos }}</div>
+                                </section>
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+
+                            {% if chart %}
+                                <img src ="data:image/png;base64, {{chart|safe}}">
+                            {% endif %}
+                    {% endif %}
+                    {% endif %}
+
+                    {% if not user.is_authenticated %}
+                        <article style = "margin:auto;">
+                            <h4>Tem de fazer log-in para poder aceder a esta página!</h4>
+                            <h5>Use a conta user: teste password: pweb2021</h5>
+                        </article>
+                    {% endif %}
+
+            </article>
+            </section>
+{% endblock %}

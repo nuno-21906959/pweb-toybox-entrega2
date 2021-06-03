@@ -1,0 +1,63 @@
+{% extends 'pw/base.html' %}
+
+{% block main %}
+
+            <!-- CONTAINER TITULO -->
+            <section class="top-container">
+              <header class="showcase-info" id="pag-contactos">
+                  <h1>
+                     Quizz
+                  </h1>
+              </header>
+            </section>
+
+            <!-- INFO POSTS -->
+            <section class="info-nobg">
+                <section class="vazio">
+                </section>
+
+                <article style = "margin:auto;">
+                    {% if user.is_authenticated %}
+                    <h3>{{quizzes.0.titulo}}</h3>
+                  <h6>
+                      {{quizzes.0.descricao}}
+                  </h6>
+                    <form action ="{% url 'enviar' %}" method="POST">
+                        {% csrf_token %}
+                        <input type ="hidden" value="{{ quizzes.0.id }}" name="quizz_id" id="quizz_id">
+                        {% for pergunta in perguntas %}
+
+                        <div class="p"> <p class ="p"> (❓) {{ pergunta.pergunta_text }} </p> </div>
+                        <section class="quizz-container">
+                            {% for resposta in pergunta.resposta.all %}
+                        <div class="r">
+                            <input name="{{pergunta.id}}"
+
+                                   {% if resposta.is_correct %}
+                                   value="{{ pergunta.pontos }}"
+                                   {% else %}
+                                   value = "0"
+                                   {% endif%}
+                                   type="radio" style="margin-right: 7%">
+                            {{ resposta.resposta_text}}
+                            </input>
+                        </div>
+                        {% endfor %}
+
+                    </section>
+                    {% endfor %}
+                        <div class="enviar" style = "margin-top: 15px">
+                            <input class ="butao" type="submit" value="Enviar"> <a href="{% url 'pontuacao' %}" class="sub-butao" style="text-decoration: none; font-weight: normal; align-content:right;">Ver Pontuacao</a>
+                        </div>
+                    </form>
+
+                </article>
+                {% else %}
+                <article style = "margin:auto;">
+                <h4>Tem de fazer log-in para poder aceder ao quizz!</h4>
+                    <h5>Use a conta user: teste password: pweb2021</h5>
+                </article>
+                {% endif %}
+            </section>
+
+{% endblock %}

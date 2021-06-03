@@ -1,0 +1,40 @@
+{% extends 'pw/base.html' %}
+
+{% block main %}
+        
+            <!-- CONTAINER TITULO -->
+            <section class="top-container">
+              <header class="showcase-info" id="pag-feedback">
+                  <h1>Deixa-nos o teu Feedback!</h1>
+              </header>
+            </section>
+
+            <!-- INFO POSTS -->
+
+            <section class="info-nobg">
+                <section class="vazio">
+
+                </section>
+
+                <article>
+                  <h2>Questionário</h2>
+                  <p>Dê uma cotação de 0 (😔) a 5 (🤩) aos diferentes aspetos do website.</p>
+                  <p>Todo o feedback é bem-vindo!</p>
+                  <form action="{% url 'feedback' %}" method="POST">
+                    
+                    <section class="feedback-container">
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <input class ="butao" type="submit" value="Enviar">
+                    </section>  
+                    
+                </form>       
+                </article>
+                <section class="vazio">
+
+                </section>
+            </section>
+
+{% endblock %}

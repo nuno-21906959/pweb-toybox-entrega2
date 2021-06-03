@@ -1,0 +1,103 @@
+{% extends 'pw/base.html' %}
+
+{% block main %}
+
+            <!-- CONTAINER TITULO -->
+            <section class="top-container">
+              <header class="showcase-info" id="pag-contactos">
+                  <h1>
+                      {% if user.is_authenticated %}
+                      Contactos (Administrador)
+                      {% else %}
+                      Contacte-nos!
+                      {%endif%}
+                  </h1>
+              </header>
+            </section>
+
+            <!-- INFO POSTS -->
+
+            <section class="info-nobg">
+                <section class="vazio">
+
+                </section>
+
+                {% if user.is_authenticated %}
+                <article style = "margin:auto;">
+                    {% if contactos|length > 0 %}
+                  <h2>Lista de Contactos</h2>
+                    <section class="contacto-container-admin">
+                        <h5>Nome</h5>
+                        <h5>Mensagem</h5>
+                        <h5>Recebido em</h5>
+                        <p></p>
+                        <p></p>
+                    </section>
+
+                    {% for contacto in contactos %}
+                    <section class="contacto-container-admin" style = "grid-template-rows: 150px;">
+                        <div class ="nome" >{{ contacto.nome }} {{ contacto.apelido }}</div>
+                        <div class="mensagem" style="word-wrap:break-word"> {{ contacto.mensagem }}</div>
+                        <div class ="data" >[{{ contacto.criado }}]</div>
+                        <div class ="editar" ><a href ="{% url 'editarcontactos' contacto.id %}">✏️</a></div>
+                        <p></p>
+                    </section>
+                    {% endfor %}
+                    {% else %}
+
+                    <h4>Não ha contactos para mostrar</h4>
+                    {% endif %}
+                </article>
+
+                {% else %}
+                <article style = "margin:auto;">
+                  <h2>Formulário de Contacto</h2>
+                  <p>Se quiser entrar em contacto conosco pode fazê-lo ao preencher o formulário abaixo.</p>
+                  <form action ="{% url 'contactos' %}" method="POST">
+                    {% csrf_token %}
+                      <section class="contacto-container">
+                        <label class ="nome" >Nome</label>
+                        {{ form.nome }}
+
+                        <label class ="apelido">Apelido</label>
+                        {{ form.apelido }}
+
+                        <label class ="datanasc">Data de Nascimento</label>
+                        {{ form.datanasc }}
+
+                          <p class="empty"></p>
+                          <p class="empty"></p>
+
+
+
+                        <label class ="telefone">Telefone</label>
+                        {{ form.telefone }}
+
+                        <label class ="email">Email</label>
+                        {{ form.email }}
+
+
+                        <p class ="mensagem">Mensagem</p>
+                        {{ form.mensagem }}
+
+                          <p class="empty"></p>
+                          <p class="empty"></p>
+                          <p class="empty"></p>
+                          <p class="empty"></p>
+
+
+                          <div class="enviar" style = "margin-top: 15px">
+                              <input class ="butao" type="submit" value="Enviar">
+                          </div>
+
+                      </section>
+                {{ form.enviado }}
+                </form>
+                </article>
+                <section class="vazio">
+
+                </section>
+                {%endif%}
+            </section>
+
+{% endblock %}

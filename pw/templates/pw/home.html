@@ -1,0 +1,63 @@
+{% extends 'pw/base.html' %}
+{% load static %}
+
+{% block main %}
+            <!-- CONTAINER PRODUTOS -->
+            <section class="top-container">
+              <header class="showcase">
+                <h1>Novos Produtos!</h1>
+                <a href="#" class="sub-butao">Ver Mais!</a>
+              </header>
+            </section>
+
+
+            <!-- CAIXAS PRODUTOS -->
+            <section class = "caixas">
+                <p class = "titulo">Marcas Mais Vendidas</p>
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <a href="https://www.lego.com/en-us" target="_blank">
+                            <img class = "marca" src="{% static 'pw/img/marcas/logo-lego.jpg' %}"/>
+                        </a>
+                    </div>
+                    <div class="flex-item">
+                        <a href="https://play.hotwheels.com/" target="_blank">
+                            <img class = "marca" style="padding-top: 1.3em" src="{% static 'pw/img/marcas/logo-hotwheels.png' %}"></img>
+                        </a>
+                    </div>
+                    <div class="flex-item">
+                        <a href="https://www.lolsurprise.com/" target="_blank">
+                            <img class = "marca" src="{% static 'pw/img/marcas/logo-lol.png' %}"></img>
+                        </a>
+                    </div>
+                    <div class="flex-item">
+                        <a href="https://pawpatrolandfriends.com/" target="_blank">
+                            <img class = "marca" src="{% static 'pw/img/marcas/logo-pawpatrol.png' %}"></img>
+                        </a>
+                    </div>
+                    <div class="flex-item">
+                        <a href="https://barbie.mattel.com/shop" target="_blank">
+                            <img class = "marca" src="{% static 'pw/img/marcas/logo-barbie.png' %}"></img>
+                        </a>
+                    </div>
+                    <div class="flex-item">
+                        <a href="https://nerf.hasbro.com/pt-pt" target="_blank">
+                            <img class = "marca" src="{% static 'pw/img/marcas/logo-nerf.png' %}"></img>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INFO POSTS -->
+            <article class="info">
+              <figure>
+                  <img src="{% static 'pw/img/evento_1.jpg' %}" alt="">
+                  <figcaption>Último Evento - <a href = "https://www.infobloom.com/what-is-face-painting.htm">FONTE</a></figcaption>
+              </figure>
+              <div style = "margin-top: 50px">
+                <h2>Eventos</h2>
+                <p>Mensalmente fazemos eventos didáticos para crianças!</p>
+                <a href="{% url 'eventos' %}" class="butao">Ver Mais</a>
+              </div>
+            </article>
+{% endblock %}
