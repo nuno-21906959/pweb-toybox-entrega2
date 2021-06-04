@@ -2,7 +2,9 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from pw.forms import ContactoForm, ComentarioForm
-from pw.models import Contacto
+from pw.models import Contacto, Comentario
+from .utils import get_plot
+
 
 # Create your views here.
 
@@ -20,6 +22,8 @@ def feedback_page_views(request):
         form.save()
         return HttpResponseRedirect(reverse('feedback'))
     context = {'form': form}
+
+    return render(request, 'pw/feedback.html', context)
 
     return render(request, 'pw/feedback.html', context)
 

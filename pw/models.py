@@ -5,6 +5,7 @@ from django.forms import NumberInput
 # Create your models here.
 
 
+
 class Contacto(models.Model):
     nome = models.CharField(max_length=15)
     apelido = models.CharField(max_length=15)
@@ -18,14 +19,20 @@ class Contacto(models.Model):
         return "Contacto de: " + self.nome[:15] + " " + self.apelido[:15] + " [" + self.criado.strftime(
             "%d-%m-%Y") + "]"
 
-
-
+COMENTARIO_CHOICES = [
+    (1, 'PÉSSIMO'),
+    (2, 'MAU'),
+    (3, 'BOM'),
+    (4, 'MUITO BOM'),
+    (5, 'EXCELENTE'),
+]
 class Comentario(models.Model):
-    clareza = models.IntegerField()
-    rigor = models.IntegerField()
-    precisao = models.IntegerField()
-    profundidade = models.IntegerField()
-    amplitude = models.IntegerField()
-    logica = models.IntegerField()
-    significancia = models.IntegerField()
-    originalidade = models.IntegerField()
+    clareza = models.IntegerField(choices=COMENTARIO_CHOICES,default=3)
+    rigor = models.IntegerField(choices=COMENTARIO_CHOICES,default=3)
+    precisao = models.IntegerField(choices=COMENTARIO_CHOICES,default=3)
+    profundidade = models.IntegerField(choices=COMENTARIO_CHOICES,default=3)
+    amplitude = models.IntegerField(choices=COMENTARIO_CHOICES,default=3)
+    logica = models.IntegerField(choices=COMENTARIO_CHOICES,default=3)
+    significancia = models.IntegerField(choices=COMENTARIO_CHOICES,default=3)
+    originalidade = models.IntegerField(choices=COMENTARIO_CHOICES,default=3)
+

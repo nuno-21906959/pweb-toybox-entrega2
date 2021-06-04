@@ -457,6 +457,21 @@
     justify-content: center;
   }
 
+ .comentario-container {
+     justify-content: center;
+  display: grid;
+  grid-template-columns: 150px 150px ;
+  grid-template-rows: 50px 50px 50px 50px;
+  gap: 15px 15px;
+  grid-template-areas:
+    "label input"
+    " label input "
+    " label input "
+    " label input";
+}
+
+ul.errorlist {display:none;}
+
  .contacto-container {
      align-content: center;
      justify-content: center;
