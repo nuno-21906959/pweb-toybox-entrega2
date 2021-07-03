@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'pw',
     'users',
     'quizz',
+    'posts',
+    'hide',
 ]
 
 MIDDLEWARE = [

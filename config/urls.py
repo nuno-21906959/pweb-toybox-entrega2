@@ -21,4 +21,5 @@ urlpatterns = [
     path('pw/', include('pw.urls')),
     path('users/', include('users.urls')),
     path('quizz/', include('quizz.urls')),
+    path('spa/', include('posts.urls')),
 ]
