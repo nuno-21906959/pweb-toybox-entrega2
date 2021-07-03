@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <title>ToyBox</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <meta name="author" content="Nuno Rasteiro; Edith Cardoso">
+        <meta name="keywords" content="Toybox,brinquedos,crianças,jogos,loja online,webstore">
+        <meta name="description" content="Webstore para compra de brinquedos">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'pw/img/favicon/favicon.ico' %}"/>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <meta name="language" content="pt-br" />
+        <meta http-equiv="Content-Language" content="pt-br" />
+        <link rel="stylesheet" href="{% static 'pw/css/base.css' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Monofett&display=swap" rel="stylesheet">
+        <script src="{% static 'pw/js/script.js' %}" type="text/javascript"> </script>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <!-- HEADER -->
+            {% include 'posts/header.html' %}
+
+            {% block main %}
+            {% endblock %}
+
+
+            <!-- FOOTER -->
+            {% include 'posts/footer.html' %}
+          </div>
+    </body>
+</html>
