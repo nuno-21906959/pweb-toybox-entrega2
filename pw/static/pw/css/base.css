@@ -442,6 +442,9 @@
 
 /* TABELA*/
 
+.tabela {
+min-width:100%;}
+
 .tabela th, td {
     padding: 15px;
     text-align: left;
